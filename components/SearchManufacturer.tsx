@@ -36,22 +36,31 @@ const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerPro
                <ComboboxOptions>
                  { 
                     filteredManufacturers.map((item) => (
-                        <ComboboxOption key={item}
-                           className={({active}) => `relative search-manufacturer__option ${active ? 'bg-primary-blue-100 text-white' : 'text-gray-900'}`}
-                           value={item}
+                        <ComboboxOption
+                            key={item}
+                            value={item}
+                            // className="group flex cursor-default items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-white/10"
+                            className={`relative search-manufacturer__option data-[active]:bg-primary-blue-100 data-[active]:text-white text-gray-900 `}
                         >
-                          {({selected,active}) => (
-                            <>
-                            <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
-                                {item}
-                            </span>
-                            {selected ? (
-                                <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white': 'text-teal-600'}`}>
-                                </span>
-                            ) : null}
-                            </>
-                          )}
+                            {/* <CheckIcon className="invisible size-4 fill-white group-data-[selected]:visible" /> */}
+                            <div className="text-sm/6 text-white">{item}</div>
                         </ComboboxOption>
+                        // <ComboboxOption key={item}
+                        //    className={({active}) => `relative search-manufacturer__option ${active ? 'bg-primary-blue-100 text-white' : 'text-gray-900'}`}
+                        //    value={item}
+                        // >
+                        //   {({selected,active}) => (
+                        //     <>
+                        //     <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                        //         {item}
+                        //     </span>
+                        //     {selected ? (
+                        //         <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white': 'text-teal-600'}`}>
+                        //         </span>
+                        //     ) : null}
+                        //     </>
+                        //   )}
+                        // </ComboboxOption>
                     ))
                  
                 }
