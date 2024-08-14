@@ -5,7 +5,7 @@ import {manufacturers} from '@/constants'
 import React, { Fragment, useState } from 'react';
 import image from 'next/image'
 
-const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerProps) => {
+const SearchManufacturer = ({selected,setSelected}:SearchManufacturerProps) => {
     const [query,setQuery] = useState('')
 
     const filteredManufacturers = query === "" ? manufacturers : manufacturers.filter((item) => (
@@ -15,7 +15,7 @@ const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerPro
 
     return (
         <div className='search-manufacturer'>
-            <Combobox value={manufacturer} onChange={setManufacturer}>
+            <Combobox value={selected} onChange={setSelected}>
                 <div className='relative w-full'>
                     <ComboboxButton className='absolute top-[14px]'>
                        <img src="/car-logo.svg" width={20} height={20} className='ml-4' alt="Car logo" />
@@ -45,22 +45,6 @@ const SearchManufacturer = ({manufacturer,setManufacturer}:SearchManufacturerPro
                             {/* <CheckIcon className="invisible size-4 fill-white group-data-[selected]:visible" /> */}
                             <div className="text-sm/6 text-white">{item}</div>
                         </ComboboxOption>
-                        // <ComboboxOption key={item}
-                        //    className={({active}) => `relative search-manufacturer__option ${active ? 'bg-primary-blue-100 text-white' : 'text-gray-900'}`}
-                        //    value={item}
-                        // >
-                        //   {({selected,active}) => (
-                        //     <>
-                        //     <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
-                        //         {item}
-                        //     </span>
-                        //     {selected ? (
-                        //         <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white': 'text-teal-600'}`}>
-                        //         </span>
-                        //     ) : null}
-                        //     </>
-                        //   )}
-                        // </ComboboxOption>
                     ))
                  
                 }
